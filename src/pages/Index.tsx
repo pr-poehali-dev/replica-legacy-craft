@@ -1,18 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Icon from '@/components/ui/icon';
 
 const HERO_IMG = 'https://cdn.poehali.dev/projects/e871f9d1-db39-4ef4-bd6b-9bd81a12ee46/files/9d89e7e9-9dd0-4693-b422-a9193916fef0.jpg';
+const LOGO_IMG = 'https://cdn.poehali.dev/projects/e871f9d1-db39-4ef4-bd6b-9bd81a12ee46/bucket/04e671ab-3ed5-4b44-98bb-7c648287bc12.jpeg';
+const VK_LINK = 'https://vk.com/club239656436';
+const WIPE_DATE = new Date('2026-07-10T12:00:00');
 
 const Logo = () => (
   <div className="flex items-center gap-3">
-    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-200 to-emerald-100 flex items-center justify-center shadow-md">
-      <div className="w-6 h-6 rounded-[4px] bg-emerald-500 border-2 border-emerald-700" />
+    <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-md ring-2 ring-white/70">
+      <img src={LOGO_IMG} alt="LCW" className="w-full h-full object-cover" />
     </div>
     <span className="font-pixel text-sm md:text-base leading-tight text-slate-800">
       Legacy<br />Craft World
     </span>
   </div>
 );
+
+const navLinks = [
+  { href: '#home', label: 'Главная' },
+  { href: '#about', label: 'О сервере' },
+  { href: '#donate', label: 'Донаты' },
+  { href: '#publics', label: 'Паблики' },
+];
 
 const features = [
   { icon: 'Users', bg: 'from-sky-400 to-sky-500', title: 'Комьюнити', text: 'Дружное сообщество без токсичности и гриферов.' },
@@ -28,12 +38,12 @@ const news = [
 ];
 
 const aboutCards = [
-  { bg: 'from-sky-100 to-sky-200/60 border-sky-200', icon: 'TreePine', title: 'Выживание', text: 'Классический survival с дружелюбными правилами.' },
-  { bg: 'from-emerald-100 to-emerald-200/60 border-emerald-200', icon: 'Gem', title: 'Экономика', text: 'Своя валюта, магазины и игровой рынок.' },
-  { bg: 'from-rose-100 to-rose-200/60 border-rose-200', icon: 'Swords', title: 'PvP и арены', text: 'Сражения на специальных аренах за награды.' },
-  { bg: 'from-indigo-100 to-indigo-200/60 border-indigo-200', icon: 'Shield', title: 'Кланы', text: 'Создавай гильдию и захватывай территории.' },
-  { bg: 'from-amber-100 to-amber-200/60 border-amber-200', icon: 'ScrollText', title: 'Квесты', text: 'Десятки заданий с уникальными сюжетами.' },
-  { bg: 'from-orange-100 to-orange-200/60 border-orange-200', icon: 'Trophy', title: 'Достижения', text: 'Открывай ачивки и получай бонусы.' },
+  { bg: 'from-sky-100 to-sky-200/70 border-sky-200', icon: 'TreePine', title: 'Выживание', text: 'Классический survival с дружелюбными правилами.' },
+  { bg: 'from-emerald-100 to-emerald-200/70 border-emerald-200', icon: 'Gem', title: 'Экономика', text: 'Своя валюта, магазины и игровой рынок.' },
+  { bg: 'from-orange-100 to-orange-200/70 border-orange-200', icon: 'Swords', title: 'PvP и арены', text: 'Сражения на специальных аренах за награды.' },
+  { bg: 'from-amber-100 to-amber-200/70 border-amber-200', icon: 'Shield', title: 'Кланы', text: 'Создавай гильдию и захватывай территории.' },
+  { bg: 'from-yellow-100 to-yellow-200/70 border-yellow-200', icon: 'ScrollText', title: 'Квесты', text: 'Десятки заданий с уникальными сюжетами.' },
+  { bg: 'from-green-100 to-green-200/70 border-green-200', icon: 'Trophy', title: 'Достижения', text: 'Открывай ачивки и получай бонусы.' },
 ];
 
 const stats = [
@@ -43,26 +53,51 @@ const stats = [
 ];
 
 const donates = [
-  { icon: 'Star', bg: 'from-sky-400 to-sky-500', name: 'Hero', price: '30 ₽' },
-  { icon: 'Sparkles', bg: 'from-emerald-400 to-emerald-500', name: 'Titan', price: '70 ₽' },
-  { icon: 'Wand2', bg: 'from-violet-400 to-violet-500', name: 'Magister', price: '500 ₽' },
-  { icon: 'Crown', bg: 'from-orange-400 to-orange-500', name: 'Imperator', price: '850 ₽' },
-  { icon: 'Flame', bg: 'from-rose-400 to-rose-500', name: 'Dragon', price: '1 700 ₽', hit: true },
-  { icon: 'Zap', bg: 'from-amber-400 to-amber-500', name: 'God', price: '4 444 ₽' },
+  { icon: 'Star', bg: 'from-sky-400 to-sky-500', btn: 'btn-blue', name: 'Hero', price: '30 ₽' },
+  { icon: 'Sparkles', bg: 'from-emerald-400 to-emerald-500', btn: 'btn-green', name: 'Titan', price: '70 ₽' },
+  { icon: 'Wand2', bg: 'from-violet-400 to-violet-500', btn: 'btn-blue', name: 'Magister', price: '500 ₽' },
+  { icon: 'Crown', bg: 'from-orange-400 to-orange-500', btn: 'btn-orange', name: 'Imperator', price: '850 ₽' },
+  { icon: 'Flame', bg: 'from-rose-400 to-orange-500', btn: 'btn-orange', name: 'Dragon', price: '1 700 ₽', hit: true },
+  { icon: 'Zap', bg: 'from-amber-400 to-yellow-500', btn: 'btn-yellow', name: 'God', price: '4 444 ₽' },
 ];
 
-const versions = ['1.16.5', '1.17.1', '1.18.2', '1.19.2', '1.20.1'];
+const publics = [
+  { icon: 'Users', name: 'Группа ВКонтакте', desc: 'Новости, ивенты и розыгрыши сервера.', btn: 'btn-blue', link: VK_LINK, label: 'Перейти в ВК', soon: false },
+  { icon: 'MessageCircle', name: 'Канал MAX', desc: 'Скоро здесь появится наш канал!', btn: 'btn-green', link: '', label: 'Скоро', soon: true },
+];
 
-const SectionTitle = ({ emoji, children }: { emoji: string; children: React.ReactNode }) => (
-  <h2 className="flex items-center gap-4 mb-10 font-pixel text-2xl md:text-4xl text-emerald-500 [text-shadow:2px_2px_0_rgba(0,0,0,0.08)]">
+const versions = ['1.16.5', '1.17.1', '1.18.2', '1.19.2', '1.20.1', 'и другие'];
+
+const SectionTitle = ({ emoji, children, center = false }: { emoji: string; children: React.ReactNode; center?: boolean }) => (
+  <h2 className={`flex items-center gap-4 mb-10 font-pixel text-2xl md:text-4xl ${center ? 'justify-center' : ''}`}>
     <span className="text-3xl md:text-5xl">{emoji}</span>
-    <span className="bg-gradient-to-r from-emerald-500 to-indigo-500 bg-clip-text text-transparent">{children}</span>
+    <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">{children}</span>
   </h2>
 );
 
 const Index = () => {
   const [copied, setCopied] = useState(false);
   const [activeVer, setActiveVer] = useState('1.20.1');
+  const [left, setLeft] = useState({ d: '00', h: '00', m: '00', s: '00' });
+
+  useEffect(() => {
+    const tick = () => {
+      const diff = WIPE_DATE.getTime() - Date.now();
+      if (diff <= 0) {
+        setLeft({ d: '00', h: '00', m: '00', s: '00' });
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const p = (n: number) => String(n).padStart(2, '0');
+      setLeft({ d: p(d), h: p(h), m: p(m), s: p(s) });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   const copyIp = () => {
     navigator.clipboard?.writeText('mc.legacycraftworld.ru');
@@ -76,10 +111,10 @@ const Index = () => {
       <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b-4 border-emerald-400">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Logo />
-          <nav className="hidden md:flex items-center gap-10 font-bold text-slate-700">
-            <a href="#home" className="hover:text-emerald-500 transition-colors">Главная</a>
-            <a href="#about" className="hover:text-emerald-500 transition-colors">О сервере</a>
-            <a href="#donate" className="hover:text-emerald-500 transition-colors">Донаты</a>
+          <nav className="hidden md:flex items-center gap-8 font-bold text-slate-700">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-emerald-500 transition-colors">{l.label}</a>
+            ))}
           </nav>
         </div>
       </header>
@@ -182,32 +217,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* WIPE TIMER */}
-        <section className="pb-20">
-          <div className="bg-warm-gradient rounded-3xl border-4 border-amber-200 card-soft p-8 md:p-12 relative overflow-hidden">
-            <Icon name="AlarmClock" size={220} className="absolute -right-10 -top-10 text-amber-200/50" />
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 btn-orange text-white font-bold rounded-full px-5 py-2.5 mb-6">
-                <Icon name="Hourglass" size={16} /> Следующий вайп
-              </span>
-              <h2 className="font-pixel text-2xl md:text-4xl text-slate-800 mb-6 [text-shadow:2px_2px_0_rgba(0,0,0,0.08)]">
-                Большое обновление уже скоро!
-              </h2>
-              <p className="text-slate-600 text-lg max-w-2xl mb-8 leading-relaxed">
-                После вайпа: новая карта, переработанная экономика, эксклюзивные данжи и секретный биом. Успей построить — лучшие постройки будут сохранены в музее сервера.
-              </p>
-              <div className="flex gap-5">
-                {[{ v: '14', l: 'дней' }, { v: '07', l: 'часов' }, { v: '32', l: 'минут' }].map((t) => (
-                  <div key={t.l} className="bg-white rounded-2xl px-6 py-5 text-center card-soft min-w-[100px]">
-                    <div className="font-pixel text-3xl text-rose-500">{t.v}</div>
-                    <div className="text-slate-500 font-medium mt-2">{t.l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ABOUT */}
         <section id="about" className="pb-20">
           <SectionTitle emoji="🏰">О сервере</SectionTitle>
@@ -232,9 +241,7 @@ const Index = () => {
 
         {/* DONATE */}
         <section id="donate" className="pb-20">
-          <h2 className="text-center font-pixel text-2xl md:text-4xl mb-12 bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-transparent">
-            Донат привилегии
-          </h2>
+          <SectionTitle emoji="💎" center>Донат привилегии</SectionTitle>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {donates.map((d) => (
               <div
@@ -253,7 +260,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-pixel text-lg text-slate-800 mb-3">{d.name}</h3>
                 <div className="font-pixel text-2xl text-emerald-500 mb-6">{d.price}</div>
-                <button className="btn-orange w-full text-white font-bold rounded-2xl py-4 hover:scale-[1.02] transition-transform">
+                <button className={`${d.btn} w-full text-white font-bold rounded-2xl py-4 hover:scale-[1.02] transition-transform`}>
                   Купить
                 </button>
                 <p className="flex items-center justify-center gap-2 text-slate-400 text-sm mt-4">
@@ -263,6 +270,63 @@ const Index = () => {
             ))}
           </div>
         </section>
+
+        {/* PUBLICS */}
+        <section id="publics" className="pb-20">
+          <SectionTitle emoji="📣">Наши паблики</SectionTitle>
+          <div className="grid sm:grid-cols-2 gap-7">
+            {publics.map((p) => (
+              <div key={p.name} className="bg-white rounded-3xl p-8 card-soft hover:-translate-y-1.5 transition-transform flex flex-col">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className={`w-16 h-16 rounded-2xl ${p.btn} flex items-center justify-center shadow-lg`}>
+                    <Icon name={p.icon} size={30} className="text-white" />
+                  </div>
+                  <h3 className="font-bold text-xl text-slate-800 flex items-center gap-2 flex-wrap">
+                    {p.name}
+                    {p.soon && <span className="bg-amber-400 text-amber-950 text-xs font-bold rounded-full px-3 py-1">скоро</span>}
+                  </h3>
+                </div>
+                <p className="text-slate-500 leading-relaxed mb-6 flex-1">{p.desc}</p>
+                {p.soon ? (
+                  <button disabled className="bg-slate-200 text-slate-500 font-bold rounded-2xl py-4 cursor-not-allowed">
+                    {p.label}
+                  </button>
+                ) : (
+                  <a href={p.link} target="_blank" rel="noopener noreferrer" className={`${p.btn} text-white font-bold rounded-2xl py-4 text-center hover:scale-[1.02] transition-transform`}>
+                    {p.label}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* WIPE TIMER (bottom) */}
+        <section className="pb-20">
+          <div className="bg-warm-gradient rounded-3xl border-4 border-amber-200 card-soft p-8 md:p-12 relative overflow-hidden">
+            <Icon name="AlarmClock" size={220} className="absolute -right-10 -top-10 text-amber-200/50" />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 btn-orange text-white font-bold rounded-full px-5 py-2.5 mb-6">
+                <Icon name="Hourglass" size={16} /> Следующий вайп
+              </span>
+              <h2 className="font-pixel text-2xl md:text-4xl text-slate-800 mb-6 [text-shadow:2px_2px_0_rgba(0,0,0,0.08)]">
+                Большое обновление уже скоро!
+              </h2>
+              <p className="text-slate-600 text-lg max-w-2xl mb-4 leading-relaxed">
+                После вайпа: новая карта, переработанная экономика, эксклюзивные данжи и секретный биом. Успей построить — лучшие постройки будут сохранены в музее сервера.
+              </p>
+              <p className="text-slate-500 font-semibold mb-8">📅 10 июля 2026 года, 12:00</p>
+              <div className="flex flex-wrap gap-5">
+                {[{ v: left.d, l: 'дней' }, { v: left.h, l: 'часов' }, { v: left.m, l: 'минут' }, { v: left.s, l: 'секунд' }].map((t) => (
+                  <div key={t.l} className="bg-white rounded-2xl px-6 py-5 text-center card-soft min-w-[100px]">
+                    <div className="font-pixel text-3xl text-rose-500 tabular-nums">{t.v}</div>
+                    <div className="text-slate-500 font-medium mt-2">{t.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* FOOTER */}
@@ -270,8 +334,8 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-200 to-emerald-100 flex items-center justify-center">
-                <div className="w-7 h-7 rounded-[4px] bg-emerald-500 border-2 border-emerald-700" />
+              <div className="w-14 h-14 rounded-2xl overflow-hidden ring-2 ring-white/20">
+                <img src={LOGO_IMG} alt="LCW" className="w-full h-full object-cover" />
               </div>
               <div>
                 <div className="font-pixel text-base">Legacy Craft World</div>
@@ -279,8 +343,8 @@ const Index = () => {
               </div>
             </div>
             <div className="flex gap-4">
-              <a href="#" className="bg-slate-800 hover:bg-slate-700 transition-colors rounded-2xl px-6 py-4 font-bold">наш ВК</a>
-              <a href="#home" className="btn-orange rounded-2xl px-6 py-4 font-bold flex items-center gap-2">
+              <a href={VK_LINK} target="_blank" rel="noopener noreferrer" className="btn-blue rounded-2xl px-6 py-4 font-bold text-white hover:scale-[1.02] transition-transform">наш ВК</a>
+              <a href="#home" className="btn-orange rounded-2xl px-6 py-4 font-bold flex items-center gap-2 text-white hover:scale-[1.02] transition-transform">
                 <Icon name="ArrowUp" size={18} /> Наверх
               </a>
             </div>

@@ -101,24 +101,65 @@
 }
 
 .bg-soft-gradient {
-  background: linear-gradient(
-    135deg,
-    #d8f5e3 0%,
-    #d7ecfb 35%,
-    #f3e0f7 70%,
-    #fde4e1 100%
-  );
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(52, 211, 153, 0.55) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 88% 14%,
+      rgba(56, 189, 248, 0.55) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 86%,
+      rgba(251, 146, 60, 0.5) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 16% 84%,
+      rgba(250, 204, 21, 0.5) 0%,
+      transparent 45%
+    ),
+    linear-gradient(135deg, #d6f7e6 0%, #d9eefb 35%, #ffe7cf 70%, #fef0c7 100%);
 }
 
 .bg-warm-gradient {
-  background: linear-gradient(120deg, #fff7ed 0%, #ffe9d6 50%, #fde4e1 100%);
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(56, 189, 248, 0.5) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 12% 82%,
+      rgba(52, 211, 153, 0.45) 0%,
+      transparent 50%
+    ),
+    linear-gradient(120deg, #fff4e3 0%, #ffe1bf 45%, #ffd6bd 100%);
 }
 
 .card-soft {
-  box-shadow: 0 18px 40px -12px rgba(80, 100, 140, 0.25);
+  box-shadow: 0 18px 40px -12px rgba(80, 100, 140, 0.22);
 }
 
 .btn-orange {
-  background: linear-gradient(180deg, #ff8a4c 0%, #f25b32 100%);
-  box-shadow: 0 12px 24px -8px rgba(242, 91, 50, 0.6);
+  background: linear-gradient(180deg, #ff9a55 0%, #f2632f 100%);
+  box-shadow: 0 12px 26px -8px rgba(242, 99, 47, 0.55);
+}
+
+.btn-blue {
+  background: linear-gradient(180deg, #4fb6f5 0%, #2b8fe0 100%);
+  box-shadow: 0 12px 26px -8px rgba(43, 143, 224, 0.55);
+}
+
+.btn-green {
+  background: linear-gradient(180deg, #4ade80 0%, #22b06b 100%);
+  box-shadow: 0 12px 26px -8px rgba(34, 176, 107, 0.55);
+}
+
+.btn-yellow {
+  background: linear-gradient(180deg, #fcd34d 0%, #f5b525 100%);
+  box-shadow: 0 12px 26px -8px rgba(245, 181, 37, 0.55);
 }
