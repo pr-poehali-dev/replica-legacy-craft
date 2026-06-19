@@ -145,6 +145,9 @@ const Index = () => {
                 <button className="btn-orange text-white font-bold text-lg rounded-2xl px-8 py-4 hover:scale-[1.03] transition-transform">
                   Играть сейчас
                 </button>
+                <a href={VK_LINK} target="_blank" rel="noopener noreferrer" className="btn-blue text-white font-bold text-lg rounded-2xl px-8 py-4 hover:scale-[1.03] transition-transform flex items-center gap-2 justify-center">
+                  <Icon name="Users" size={20} /> Перейти в ВК
+                </a>
               </div>
             </div>
           </div>
@@ -350,7 +353,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-slate-700 mt-10 pt-8 text-center text-slate-400">
-            © 2026 Legacy Craft World. Не является официальным продуктом Mojang.
+            © 2026 Legacy Craft World
           </div>
         </div>
       </footer>
