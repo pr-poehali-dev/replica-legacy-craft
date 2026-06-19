@@ -52,6 +52,13 @@ const stats = [
   { bg: 'bg-amber-400', value: '24/7', label: 'аптайм' },
 ];
 
+const vkContent = [
+  { icon: 'PlayCircle', color: 'text-rose-500', bg: 'bg-rose-50', title: 'Обзоры', text: 'Видео-туры по лучшим постройкам и новым биомам сервера.' },
+  { icon: 'Lightbulb', color: 'text-amber-500', bg: 'bg-amber-50', title: 'Лайфхаки', text: 'Секреты фарма, крафты и способы быстро разбогатеть.' },
+  { icon: 'Sparkles', color: 'text-violet-500', bg: 'bg-violet-50', title: 'Фишки', text: 'Скрытые механики, пасхалки и редкие предметы.' },
+  { icon: 'Trophy', color: 'text-emerald-500', bg: 'bg-emerald-50', title: 'Ивенты', text: 'Анонсы турниров, конкурсов и розыгрышей.' },
+];
+
 const donates = [
   { icon: 'Star', bg: 'from-sky-400 to-sky-500', btn: 'btn-blue', name: 'Hero', price: '30 ₽' },
   { icon: 'Sparkles', bg: 'from-emerald-400 to-emerald-500', btn: 'btn-green', name: 'Titan', price: '70 ₽' },
@@ -108,12 +115,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-soft-gradient">
       {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b-4 border-emerald-400">
+      <header className="sticky top-0 z-50 border-b-4 border-emerald-400/60" style={{background: 'linear-gradient(135deg, rgba(16,185,129,0.92) 0%, rgba(14,165,233,0.92) 50%, rgba(139,92,246,0.88) 100%)', backdropFilter: 'blur(12px)'}}>
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Logo />
-          <nav className="hidden md:flex items-center gap-8 font-bold text-slate-700">
+          <nav className="hidden md:flex items-center gap-8 font-bold text-white">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-emerald-500 transition-colors">{l.label}</a>
+              <a key={l.href} href={l.href} className="hover:text-yellow-300 transition-colors drop-shadow-sm">{l.label}</a>
             ))}
           </nav>
         </div>
@@ -239,6 +246,42 @@ const Index = () => {
                 <div className="text-white/90 font-semibold mt-3">{s.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* VK CHANNEL BLOCK */}
+          <div className="mt-10 rounded-3xl overflow-hidden card-soft" style={{background: 'linear-gradient(135deg, #1a76d2 0%, #0d5faf 60%, #0a4a8f 100%)'}}>
+            <div className="p-8 md:p-10">
+              <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <Icon name="Users" size={34} className="text-white" />
+                </div>
+                <div>
+                  <div className="text-white/70 font-semibold text-sm mb-1 uppercase tracking-wider">ВКонтакте</div>
+                  <h3 className="font-pixel text-xl md:text-2xl text-white leading-tight">Наш VK-канал</h3>
+                  <p className="text-white/80 mt-1">Обзоры, лайфхаки, фишки и анонсы — всё в одном месте</p>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                {vkContent.map((v) => (
+                  <div key={v.title} className="bg-white/10 rounded-2xl p-5 hover:bg-white/20 transition-colors">
+                    <div className={`w-10 h-10 rounded-xl ${v.bg} flex items-center justify-center mb-3`}>
+                      <Icon name={v.icon} size={20} className={v.color} />
+                    </div>
+                    <h4 className="font-bold text-white mb-1">{v.title}</h4>
+                    <p className="text-white/70 text-sm leading-relaxed">{v.text}</p>
+                  </div>
+                ))}
+              </div>
+              <a
+                href={VK_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-white text-blue-700 font-bold text-lg rounded-2xl px-8 py-4 hover:scale-[1.03] hover:bg-blue-50 transition-all shadow-lg"
+              >
+                <Icon name="ExternalLink" size={22} />
+                Перейти в ВК
+              </a>
+            </div>
           </div>
         </section>
 
