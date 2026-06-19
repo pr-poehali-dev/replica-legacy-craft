@@ -348,6 +348,96 @@ const Index = () => {
           </div>
         </section>
 
+        {/* RECRUITMENT */}
+        <section className="pb-20">
+          <div className="rounded-3xl overflow-hidden card-soft relative" style={{background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)'}}>
+            {/* Decorative orbs */}
+            <div className="absolute top-0 left-0 w-80 h-80 rounded-full opacity-20 blur-3xl pointer-events-none" style={{background: 'radial-gradient(circle, #ef4444 0%, transparent 70%)'}} />
+            <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full opacity-20 blur-3xl pointer-events-none" style={{background: 'radial-gradient(circle, #3b82f6 0%, transparent 70%)'}} />
+
+            <div className="relative p-8 md:p-12">
+              {/* Header */}
+              <div className="text-center mb-10">
+                <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white font-bold rounded-full px-5 py-2.5 mb-5 text-sm border border-white/20">
+                  <Icon name="Sparkles" size={16} /> Открытый набор
+                </span>
+                <h2 className="font-pixel text-2xl md:text-4xl text-white mb-3 [text-shadow:0_0_30px_rgba(255,255,255,0.2)]">
+                  Стань частью команды!
+                </h2>
+                <p className="text-slate-300 text-lg max-w-xl mx-auto">Мы ищем преданных игроков, готовых помогать серверу расти и развиваться</p>
+              </div>
+
+              {/* Two columns */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                {/* ADMIN */}
+                <div className="rounded-2xl p-7 relative overflow-hidden group hover:scale-[1.02] transition-transform cursor-default" style={{background: 'linear-gradient(145deg, rgba(239,68,68,0.15) 0%, rgba(185,28,28,0.25) 100%)', border: '1.5px solid rgba(239,68,68,0.4)'}}>
+                  <div className="absolute -right-6 -top-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Icon name="Shield" size={120} className="text-red-400" />
+                  </div>
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style={{background: 'linear-gradient(135deg, #ef4444, #b91c1c)'}}>
+                      <Icon name="ShieldCheck" size={28} className="text-white" />
+                    </div>
+                    <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 font-bold text-xs rounded-full px-3 py-1.5 mb-3 border border-red-500/30">
+                      🔴 АДМИНИСТРАТОР
+                    </div>
+                    <h3 className="font-pixel text-xl text-white mb-3">Набор в Администрацию</h3>
+                    <ul className="space-y-2 mb-5">
+                      {['Опыт игры от 3 месяцев', 'Умение решать конфликты', 'Активность каждый день', 'Стрессоустойчивость'].map(item => (
+                        <li key={item} className="flex items-center gap-2 text-slate-300 text-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-red-300/80 text-sm italic">Подробности и анкета — в нашей группе ВКонтакте</p>
+                  </div>
+                </div>
+
+                {/* MODER */}
+                <div className="rounded-2xl p-7 relative overflow-hidden group hover:scale-[1.02] transition-transform cursor-default" style={{background: 'linear-gradient(145deg, rgba(59,130,246,0.15) 0%, rgba(29,78,216,0.25) 100%)', border: '1.5px solid rgba(59,130,246,0.4)'}}>
+                  <div className="absolute -right-6 -top-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Icon name="Eye" size={120} className="text-blue-400" />
+                  </div>
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style={{background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'}}>
+                      <Icon name="Eye" size={28} className="text-white" />
+                    </div>
+                    <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 font-bold text-xs rounded-full px-3 py-1.5 mb-3 border border-blue-500/30">
+                      🔵 МОДЕРАТОР
+                    </div>
+                    <h3 className="font-pixel text-xl text-white mb-3">Набор в Модерацию</h3>
+                    <ul className="space-y-2 mb-5">
+                      {['Знание правил сервера', 'Вежливость и терпение', 'Онлайн от 2 часов в день', 'Возраст от 14 лет'].map(item => (
+                        <li key={item} className="flex items-center gap-2 text-slate-300 text-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-blue-300/80 text-sm italic">Подробности и анкета — в нашей группе ВКонтакте</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <p className="text-slate-400 text-center">Все анкеты принимаются только через ВКонтакте</p>
+                <a
+                  href={VK_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 font-bold text-lg rounded-2xl px-8 py-4 hover:scale-[1.03] transition-all shadow-xl flex-shrink-0"
+                  style={{background: 'linear-gradient(135deg, #ef4444 0%, #8b5cf6 50%, #3b82f6 100%)', color: 'white'}}
+                >
+                  <Icon name="ExternalLink" size={20} />
+                  Подать заявку в ВК
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* WIPE TIMER (bottom) */}
         <section className="pb-20">
           <div className="bg-warm-gradient rounded-3xl border-4 border-amber-200 card-soft p-8 md:p-12 relative overflow-hidden">
