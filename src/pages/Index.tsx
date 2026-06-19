@@ -348,15 +348,40 @@ const Index = () => {
           </div>
         </section>
 
-        {/* RECRUITMENT */}
+        {/* WIPE TIMER (bottom) */}
         <section className="pb-20">
+          <div className="bg-warm-gradient rounded-3xl border-4 border-amber-200 card-soft p-8 md:p-12 relative overflow-hidden">
+            <Icon name="AlarmClock" size={220} className="absolute -right-10 -top-10 text-amber-200/50" />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 btn-orange text-white font-bold rounded-full px-5 py-2.5 mb-6">
+                <Icon name="Hourglass" size={16} /> Следующий вайп
+              </span>
+              <h2 className="font-pixel text-2xl md:text-4xl text-slate-800 mb-6 [text-shadow:2px_2px_0_rgba(0,0,0,0.08)]">
+                Большое обновление уже скоро!
+              </h2>
+              <p className="text-slate-600 text-lg max-w-2xl mb-4 leading-relaxed">
+                После вайпа: новая карта, переработанная экономика, эксклюзивные данжи и секретный биом. Успей построить — лучшие постройки будут сохранены в музее сервера.
+              </p>
+              <p className="text-slate-500 font-semibold mb-8">📅 10 июля 2026 года, 12:00</p>
+              <div className="flex flex-wrap gap-5">
+                {[{ v: left.d, l: 'дней' }, { v: left.h, l: 'часов' }, { v: left.m, l: 'минут' }, { v: left.s, l: 'секунд' }].map((t) => (
+                  <div key={t.l} className="rounded-2xl px-6 py-5 text-center card-soft min-w-[100px]" style={{background: 'linear-gradient(145deg, #fff7ed 0%, #fef3c7 100%)', border: '1.5px solid #fcd34d'}}>
+                    <div className="font-pixel text-3xl text-rose-500 tabular-nums">{t.v}</div>
+                    <div className="text-slate-500 font-medium mt-2">{t.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* RECRUITMENT */}
+        <section className="pb-20" id="recruitment">
           <div className="rounded-3xl overflow-hidden card-soft relative" style={{background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)'}}>
-            {/* Decorative orbs */}
             <div className="absolute top-0 left-0 w-80 h-80 rounded-full opacity-20 blur-3xl pointer-events-none" style={{background: 'radial-gradient(circle, #ef4444 0%, transparent 70%)'}} />
             <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full opacity-20 blur-3xl pointer-events-none" style={{background: 'radial-gradient(circle, #3b82f6 0%, transparent 70%)'}} />
 
             <div className="relative p-8 md:p-12">
-              {/* Header */}
               <div className="text-center mb-10">
                 <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur text-white font-bold rounded-full px-5 py-2.5 mb-5 text-sm border border-white/20">
                   <Icon name="Sparkles" size={16} /> Открытый набор
@@ -367,9 +392,7 @@ const Index = () => {
                 <p className="text-slate-300 text-lg max-w-xl mx-auto">Мы ищем преданных игроков, готовых помогать серверу расти и развиваться</p>
               </div>
 
-              {/* Two columns */}
               <div className="grid md:grid-cols-2 gap-6 mb-8">
-                {/* ADMIN */}
                 <div className="rounded-2xl p-7 relative overflow-hidden group hover:scale-[1.02] transition-transform cursor-default" style={{background: 'linear-gradient(145deg, rgba(239,68,68,0.15) 0%, rgba(185,28,28,0.25) 100%)', border: '1.5px solid rgba(239,68,68,0.4)'}}>
                   <div className="absolute -right-6 -top-6 opacity-10 group-hover:opacity-20 transition-opacity">
                     <Icon name="Shield" size={120} className="text-red-400" />
@@ -394,7 +417,6 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* MODER */}
                 <div className="rounded-2xl p-7 relative overflow-hidden group hover:scale-[1.02] transition-transform cursor-default" style={{background: 'linear-gradient(145deg, rgba(59,130,246,0.15) 0%, rgba(29,78,216,0.25) 100%)', border: '1.5px solid rgba(59,130,246,0.4)'}}>
                   <div className="absolute -right-6 -top-6 opacity-10 group-hover:opacity-20 transition-opacity">
                     <Icon name="Eye" size={120} className="text-blue-400" />
@@ -420,7 +442,6 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <p className="text-slate-400 text-center">Все анкеты принимаются только через ВКонтакте</p>
                 <a
@@ -433,33 +454,6 @@ const Index = () => {
                   <Icon name="ExternalLink" size={20} />
                   Подать заявку в ВК
                 </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* WIPE TIMER (bottom) */}
-        <section className="pb-20">
-          <div className="bg-warm-gradient rounded-3xl border-4 border-amber-200 card-soft p-8 md:p-12 relative overflow-hidden">
-            <Icon name="AlarmClock" size={220} className="absolute -right-10 -top-10 text-amber-200/50" />
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 btn-orange text-white font-bold rounded-full px-5 py-2.5 mb-6">
-                <Icon name="Hourglass" size={16} /> Следующий вайп
-              </span>
-              <h2 className="font-pixel text-2xl md:text-4xl text-slate-800 mb-6 [text-shadow:2px_2px_0_rgba(0,0,0,0.08)]">
-                Большое обновление уже скоро!
-              </h2>
-              <p className="text-slate-600 text-lg max-w-2xl mb-4 leading-relaxed">
-                После вайпа: новая карта, переработанная экономика, эксклюзивные данжи и секретный биом. Успей построить — лучшие постройки будут сохранены в музее сервера.
-              </p>
-              <p className="text-slate-500 font-semibold mb-8">📅 10 июля 2026 года, 12:00</p>
-              <div className="flex flex-wrap gap-5">
-                {[{ v: left.d, l: 'дней' }, { v: left.h, l: 'часов' }, { v: left.m, l: 'минут' }, { v: left.s, l: 'секунд' }].map((t) => (
-                  <div key={t.l} className="rounded-2xl px-6 py-5 text-center card-soft min-w-[100px]" style={{background: 'linear-gradient(145deg, #fff7ed 0%, #fef3c7 100%)', border: '1.5px solid #fcd34d'}}>
-                    <div className="font-pixel text-3xl text-rose-500 tabular-nums">{t.v}</div>
-                    <div className="text-slate-500 font-medium mt-2">{t.l}</div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
