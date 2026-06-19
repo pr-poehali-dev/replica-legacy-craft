@@ -96,6 +96,29 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
+}
+
+.bg-soft-gradient {
+  background: linear-gradient(
+    135deg,
+    #d8f5e3 0%,
+    #d7ecfb 35%,
+    #f3e0f7 70%,
+    #fde4e1 100%
+  );
+}
+
+.bg-warm-gradient {
+  background: linear-gradient(120deg, #fff7ed 0%, #ffe9d6 50%, #fde4e1 100%);
+}
+
+.card-soft {
+  box-shadow: 0 18px 40px -12px rgba(80, 100, 140, 0.25);
+}
+
+.btn-orange {
+  background: linear-gradient(180deg, #ff8a4c 0%, #f25b32 100%);
+  box-shadow: 0 12px 24px -8px rgba(242, 91, 50, 0.6);
 }
