@@ -11,7 +11,7 @@ const Logo = () => (
     <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-md ring-2 ring-white/70">
       <img src={LOGO_IMG} alt="LCW" className="w-full h-full object-cover" />
     </div>
-    <span className="font-pixel text-sm md:text-base leading-tight text-slate-800">
+    <span className="font-pixel text-sm md:text-base leading-tight text-white drop-shadow-sm">
       Legacy<br />Craft World
     </span>
   </div>
@@ -141,7 +141,7 @@ const Index = () => {
                 LEGACY<br />CRAFT<br />WORLD
               </h1>
               <p className="text-white/95 text-lg font-medium mb-8 max-w-md [text-shadow:0_1px_4px_rgba(0,0,0,0.25)]">
-                Уютный мир приключений, дружное комьюнити и куча ивентов. Заходи и стань частью легенды!
+                Лучший Minecraft-сервер для выживания и игры с друзьями. Подключайся и играй!
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button onClick={copyIp} className="flex items-center gap-3 bg-white rounded-2xl px-5 py-4 shadow-lg font-mono font-bold text-slate-800 hover:scale-[1.02] transition-transform">
@@ -161,7 +161,7 @@ const Index = () => {
 
           {/* version + online */}
           <div className="grid lg:grid-cols-3 gap-6 mt-8">
-            <div className="lg:col-span-2 bg-white rounded-3xl p-7 card-soft">
+            <div className="lg:col-span-2 rounded-3xl p-7 card-soft" style={{background: 'linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%)'}}>
               <p className="font-bold text-slate-700 mb-4">Выбери версию клиента:</p>
               <div className="flex flex-wrap gap-3">
                 {versions.map((v) => (
@@ -194,7 +194,7 @@ const Index = () => {
           <SectionTitle emoji="✨">Почему Legacy Craft World?</SectionTitle>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f) => (
-              <div key={f.title} className="bg-white rounded-3xl p-7 card-soft hover:-translate-y-1.5 transition-transform">
+              <div key={f.title} className="rounded-3xl p-7 card-soft hover:-translate-y-1.5 transition-transform" style={{background: 'linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%)', border: '1.5px solid #e2e8f0'}}>
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${f.bg} flex items-center justify-center mb-6 shadow-lg`}>
                   <Icon name={f.icon} size={28} className="text-white" />
                 </div>
@@ -210,7 +210,7 @@ const Index = () => {
           <SectionTitle emoji="📰">Свежие новости</SectionTitle>
           <div className="grid md:grid-cols-3 gap-7">
             {news.map((n) => (
-              <article key={n.title} className="bg-white rounded-3xl overflow-hidden card-soft hover:-translate-y-1.5 transition-transform">
+              <article key={n.title} className="rounded-3xl overflow-hidden card-soft hover:-translate-y-1.5 transition-transform" style={{background: 'linear-gradient(160deg, #fafffe 0%, #f0f9ff 60%, #fdf4ff 100%)', border: '1.5px solid #e2e8f0'}}>
                 <div className={`${n.bg} h-44 flex items-center justify-center`}>
                   <Icon name={n.icon} size={56} className="text-white drop-shadow" />
                 </div>
@@ -292,9 +292,10 @@ const Index = () => {
             {donates.map((d) => (
               <div
                 key={d.name}
-                className={`relative bg-white rounded-3xl p-7 card-soft hover:-translate-y-1.5 transition-transform ${
-                  d.hit ? 'border-4 border-rose-400' : ''
+                className={`relative rounded-3xl p-7 card-soft hover:-translate-y-1.5 transition-transform ${
+                  d.hit ? 'border-4 border-rose-400' : 'border border-slate-100'
                 }`}
+                style={{background: 'linear-gradient(145deg, #ffffff 0%, #f8faff 50%, #f0fdf4 100%)'}}
               >
                 {d.hit && (
                   <span className="absolute -top-4 left-1/2 -translate-x-1/2 btn-orange text-white font-bold text-sm rounded-full px-5 py-2 flex items-center gap-1">
@@ -322,7 +323,7 @@ const Index = () => {
           <SectionTitle emoji="📣">Наши паблики</SectionTitle>
           <div className="grid sm:grid-cols-2 gap-7">
             {publics.map((p) => (
-              <div key={p.name} className="bg-white rounded-3xl p-8 card-soft hover:-translate-y-1.5 transition-transform flex flex-col">
+              <div key={p.name} className="rounded-3xl p-8 card-soft hover:-translate-y-1.5 transition-transform flex flex-col" style={{background: 'linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%)', border: '1.5px solid #bfdbfe'}}>
                 <div className="flex items-center gap-4 mb-5">
                   <div className={`w-16 h-16 rounded-2xl ${p.btn} flex items-center justify-center shadow-lg`}>
                     <Icon name={p.icon} size={30} className="text-white" />
@@ -364,7 +365,7 @@ const Index = () => {
               <p className="text-slate-500 font-semibold mb-8">📅 10 июля 2026 года, 12:00</p>
               <div className="flex flex-wrap gap-5">
                 {[{ v: left.d, l: 'дней' }, { v: left.h, l: 'часов' }, { v: left.m, l: 'минут' }, { v: left.s, l: 'секунд' }].map((t) => (
-                  <div key={t.l} className="bg-white rounded-2xl px-6 py-5 text-center card-soft min-w-[100px]">
+                  <div key={t.l} className="rounded-2xl px-6 py-5 text-center card-soft min-w-[100px]" style={{background: 'linear-gradient(145deg, #fff7ed 0%, #fef3c7 100%)', border: '1.5px solid #fcd34d'}}>
                     <div className="font-pixel text-3xl text-rose-500 tabular-nums">{t.v}</div>
                     <div className="text-slate-500 font-medium mt-2">{t.l}</div>
                   </div>
