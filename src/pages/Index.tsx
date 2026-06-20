@@ -133,9 +133,9 @@ const Index = () => {
             <img src={HERO_IMG} alt="Legacy Craft World" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-sky-200/70 via-transparent to-transparent" />
             <div className="relative p-8 md:p-14 max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 shadow-md mb-6 bg-[#ffdb00]">
+              <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 shadow-md mb-6 bg-[#ff0000]">
                 <span className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse-dot text-[#000000]" />
-                <span className="font-bold text-slate-800 text-sm">Перезагрузка!</span>
+                <span className="font-bold text-slate-800 text-sm">! Сервер выключен !</span>
               </div>
               <h1 className="font-pixel text-3xl md:text-6xl text-white leading-tight [text-shadow:3px_3px_0_rgba(80,100,140,0.35)] mb-6">
                 LEGACY<br />CRAFT<br />WORLD
