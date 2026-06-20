@@ -423,7 +423,7 @@ const Index = () => {
                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg" style={{background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'}}>
                       <Icon name="Eye" size={28} className="text-white" />
                     </div>
-                    <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 font-bold text-xs rounded-full px-3 py-1.5 mb-3 border border-blue-500/30">🔵 ML.MODER</div>
+                    <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 font-bold text-xs rounded-full px-3 py-1.5 mb-3 border border-blue-500/30">🔵 MODER</div>
                     <h3 className="font-pixel text-xl text-white mb-3">Набор в Модерацию</h3>
                     <ul className="space-y-2 mb-5">
                       {['Знание правил сервера', 'Вежливость и терпение', 'Онлайн от 2 часов в день', 'Возраст от 14 лет'].map(item => (
