@@ -78,7 +78,7 @@ const versions = ['1.16.5', '1.17.1', '1.18.2', '1.19.2', '1.20.1', 'и друг
 const SectionTitle = ({ emoji, children, center = false }: { emoji: string; children: React.ReactNode; center?: boolean }) => (
   <h2 className={`flex items-center gap-4 mb-10 font-pixel text-2xl md:text-4xl ${center ? 'justify-center' : ''}`}>
     <span className="text-3xl md:text-5xl">{emoji}</span>
-    <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent">{children}</span>
+    <span className="bg-gradient-to-r from-emerald-500 to-sky-500 bg-clip-text text-transparent font-normal">{children}</span>
   </h2>
 );
 
